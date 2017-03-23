@@ -89,6 +89,43 @@ func findByStringAny() throws -> User {
 
 
 /* =============================================================================================
+Find by [String:Any]
+First, we create a new record, then we fetch it into a new object.
+============================================================================================= */
+func findDiagnosticByStringAny() throws -> Diagnostic {
+
+	// Create new row.
+	// let obj = User()
+	// obj.firstname = "FindMe"
+	// obj.lastname = "Y"
+
+	// do {
+	// 	try obj.save {id in obj.id = id as! Int }
+	// } catch {
+	// 	throw error
+	// }
+	// print("Object created with id of \(obj.id), and firstname is \(obj.firstname)")
+	// Row is now created.
+
+
+	// Now we fetch it into anew instance
+	let getObj = Diagnostic()
+
+	var findObj = [String:Any]()
+	findObj["name"] = "Prezenta unui implant de cot,-1,0,0,0,0,0"
+
+	do {
+		try getObj.find(findObj)
+	} catch {
+		throw error
+	}
+	print("Object fetched with code of \(getObj.code), and firstname is \(getObj.name)")
+
+	return getObj
+}
+
+
+/* =============================================================================================
 Find by SELECT statement
 First, we create a new record, then we fetch it into a new object.
 ============================================================================================= */

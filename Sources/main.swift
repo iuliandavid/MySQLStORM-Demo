@@ -12,16 +12,18 @@ import MySQLStORM
 
 // Set the connection properties
 // Change to suit your specific environment
-MySQLConnector.host		= "127.0.0.1"
-MySQLConnector.username	= "perfect"
-MySQLConnector.password	= "perfect"
-MySQLConnector.database	= "perfect_testing"
+MySQLConnector.host		= "192.168.39.6"
+MySQLConnector.username	= "iuli"
+MySQLConnector.password	= "mypass"
+MySQLConnector.database	= "swift_test"
 MySQLConnector.port		= 3306
 
 
 // Instantiate the table via "setup"
 let obj = User()
+let diagnostic = User()
 try? obj.setup()
+try? diagnostic.setup()
 
 
 
@@ -97,6 +99,13 @@ do {
 	print("\(error)")
 }
 
+// perform a find
+do {
+	let diagnostic = try findDiagnosticByStringAny()
+	print("diagnostic found \(diagnostic)")
+} catch {
+	print("\(error)")
+}
 // perform a select
 do {
 	let _ = try findBySelect()
